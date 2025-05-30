@@ -9,8 +9,32 @@ import Nomeavel
 
 -- Tipos Algébricos
 
-data Classe = Guerreiro | Mago | Ladino | Clerigo | Arqueiro deriving (Show, Eq, Read)
-data Raca = Humano | Elfo | Anao | Orc | Goblin deriving (Show, Eq, Read)
+data Classe
+  = Barbaro
+  | Bardo
+  | Bruxo
+  | Clerigo
+  | Druida
+  | Feiticeiro
+  | Guerreiro
+  | Ladino
+  | Mago
+  | Monge
+  | Paladino
+  | Patrulheiro  -- (Ranger)
+  deriving (Show, Eq, Read)
+
+data Raca
+  = Humano
+  | Elfo
+  | Anão
+  | Halfling
+  | MeioOrc
+  | MeioElfo
+  | Gnomo
+  | Draconato
+  | Tiefling
+  deriving (Show, Eq, Read)
 
 data Atributos = Atributos {
   forca :: Int,
