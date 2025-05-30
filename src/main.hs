@@ -13,6 +13,7 @@ import qualified Data.Map as Map
 
 type Contadores = Map.Map Int Int
 
+
 -- Função para obter o próximo contador para uma seed
 proximoContador :: Int -> Contadores -> (Int, Contadores)
 proximoContador seed contadores =
