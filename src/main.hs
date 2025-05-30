@@ -19,11 +19,12 @@ mostrarPersonagens ps = do
 -- Função para adicionar item ao personagem
 adicionarItemPersonagem :: String -> String -> String -> [Personagem] -> [Personagem]
 adicionarItemPersonagem nomeItem nomePersonagem descricao ps =
-  let (personagemExistente, outros) = break (\p -> obterNome p == nomePersonagem) ps
-  in case personagemExistente of
-       [] -> ps  -- Se o personagem não existir, retorna a lista original sem alterações
-       (p:_) -> let pAtualizado = adicionarItem (Item nomeItem descricao) p
-                in pAtualizado : outros
+  let (antes, resto) = break (\p -> obterNome p == nomePersonagem) ps
+  in case resto of
+       [] -> ps  -- Personagem não encontrado
+       (p:depois) ->
+         let pAtualizado = adicionarItem (Item nomeItem descricao) p
+         in antes ++ [pAtualizado] ++ depois
 
 -- Função para adicionar personagem
 adicionarPersonagem :: Personagem -> [Personagem] -> [Personagem]
